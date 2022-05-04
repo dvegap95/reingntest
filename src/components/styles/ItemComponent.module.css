@@ -1,0 +1,81 @@
+.cardContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 550px;
+    height: 90px;
+    opacity: 0.8;
+    border-radius: 6px;
+    border: solid 1px #979797;
+    background-color: #fff;
+    padding-left: 26px;
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+}
+.cardFavSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 100%;
+    border: solid 1px #60606015;
+    background-color: #60606015;
+    box-sizing: border-box;
+}
+
+.cardFavImg{
+    width: 24px;
+    height: 22px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cardSubtitleContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.cardSubtitleImg{
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.cardSubtitle{
+    width: 107px;
+    height: 13px;
+    margin-left: 8px;
+    font-family: Roboto;
+    font-size: 11px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #767676;
+}
+.cardText{
+    width: 440px;
+    height: 20px;
+    margin: 6px 0 0;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.25px;
+    color: #6b6b6b;
+}

@@ -39,6 +39,7 @@
 }
 
 .selectMenu {
+	z-index: 10;
   position: absolute;
   top: 35px;
   left: 0;
@@ -54,11 +55,11 @@
 	align-items: center;
   width: 100%;
   height: 46px;
-  background-color: #eaeaea02;
+  background-color: #eaeaea20;
 	cursor: pointer;
 }
 .selectOption:hover{
-	opacity: .4;
+  background-color: #eaeaea60;
 }
 
 .selectOptionImg {
