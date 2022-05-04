@@ -1,0 +1,35 @@
+.tabContainer {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.tabBtn {
+  width: 98px;
+  height: 31px;
+  border-radius: 2px;
+  border: solid 1px #d6d6d6;
+  text-align: center;
+  color: #606060;
+  /* border: solid 1px #1797ff; */
+}
+.tabBtn:hover {
+  border: solid 1px #1797ff80;
+  color: #1797ff80;
+}
+
+.tabBtnText{
+        height: 28px;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.75;
+        letter-spacing: normal;
+        text-align: center;
+}
