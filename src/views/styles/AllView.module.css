@@ -9,8 +9,9 @@
 }
 .itemsContainer{
     overflow-y: auto;
-    max-height: 70vh;
-    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 55vh;
     margin-left: -20px;
 }
 .footer{

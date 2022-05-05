@@ -40,7 +40,7 @@ export default function SelectComponent(props: {onChange:Function,value:{id:numb
       onClick: (element:any) => props.onChange(element),
     },
     {
-      text: "Vue",
+      text: "Vuejs",
       img: imgVue,
       img2x: imgVue2x,
       img3x: imgVue3x,
@@ -65,7 +65,7 @@ export default function SelectComponent(props: {onChange:Function,value:{id:numb
           <div
             className={styles.selectOption}
             onClick={(event) => {
-              option.onClick({...option,id:index})
+              option.onClick({id:index})
             }}
             style={props.value?.id === index ? {backgroundColor:"#eaeaea90"}:{}}
           >

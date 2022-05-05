@@ -38,6 +38,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 90px;
 }
 
 .cardSubtitleContainer{
@@ -55,7 +56,6 @@
 }
 
 .cardSubtitle{
-    width: 107px;
     height: 13px;
     margin-left: 8px;
     font-family: Roboto;
@@ -67,9 +67,8 @@
     letter-spacing: normal;
     color: #767676;
 }
-.cardText{
+.cardTitle{
     width: 440px;
-    height: 20px;
     margin: 6px 0 0;
     font-family: Roboto;
     font-size: 14px;
