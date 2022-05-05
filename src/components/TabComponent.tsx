@@ -22,6 +22,7 @@ export default function TabComponent(props: {
                 }
               : {}
           }
+          key={index}
         >
           <span className={styles.tabBtnText}>{btn.text}</span>
         </div>

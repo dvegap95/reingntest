@@ -21,6 +21,7 @@ const hitsPerPage = 8;
 export default function AllView() {
   const [selection, setSelection] = useState({ id: 0 });
   const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(1);
   const [data, setData] = useState(new Array<Hit>(0));
   const [favorites, setFavorites]: [any, Function] = useState({});
 
@@ -58,6 +59,7 @@ export default function AllView() {
       .then((response: unknown) => {
         let r = response as HitsPageInfo;
         setData(r.hits);
+        setPageCount(r.nbPages);
       })
       .catch(alert);
   }
@@ -87,7 +89,7 @@ export default function AllView() {
       </div>
       <div className={styles.itemsContainer}>
         {data.length ? data.map((e,index) => (
-          <div style={{ flex:"1 0 50%" }} key={index}>
+          <div style={{ flex:"1 0 50%" }} key={e.objectID}>
             <ItemComponent
               hit={e}
               favorite={!!favorites[e.objectID]}
@@ -110,8 +112,9 @@ export default function AllView() {
       <div className={styles.footer}>
         <PaginationComponent
           page={page}
-          totalPages={9}
+          totalPages={pageCount}
           onPageChanged={savePage}
+          maxItemCount={9}
         />
       </div>
     </div>

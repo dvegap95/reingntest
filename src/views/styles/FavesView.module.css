@@ -17,6 +17,7 @@
 }
 .footer {
   position: absolute;
+  max-height: 13vh;
   bottom: 9.8vh;
   left: 0;
   width: 100%;

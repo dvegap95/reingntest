@@ -68,6 +68,7 @@ export default function SelectComponent(props: {onChange:Function,value:{id:numb
               option.onClick({id:index})
             }}
             style={props.value?.id === index ? {backgroundColor:"#eaeaea90"}:{}}
+            key={index}
           >
             <img
               src={option.img}

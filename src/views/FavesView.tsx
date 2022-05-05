@@ -39,7 +39,8 @@ export default function FavesView() {
 
   function saveFavorites(faves: any) {
     localStorage.setItem("favorites", JSON.stringify(faves));
-    if(Object.entries(faves).length <= (page - 1) * 8)savePage(Math.max(page-1,1));
+    if (Object.entries(faves).length <= (page - 1) * 8)
+      savePage(Math.max(page - 1, 1));
     setFavorites(faves);
   }
 
@@ -51,39 +52,44 @@ export default function FavesView() {
   return (
     <div className={styles.globalContainer}>
       <div className={styles.selectorContainer}>
-        <div style={{ height: 30, margin: 0 }}></div>
+        <div style={{ width: 240, height: 32 }}></div>
       </div>
       <div className={styles.itemsContainer}>
-        {favoritesArr.length ? favoritesArr
-          .slice((page - 1) * 8, Math.min(page * 8, favoritesArr.length))
-          .map((e, index) => {
-            return (
-              <div style={{ flex: "1 0 50%" }} key={index}>
-                <ItemComponent
-                  hit={e}
-                  favorite={!!favorites[e.objectID]}
-                  onFavoriteChanged={(val: boolean) => {
-                    if (!val) {
-                      let faves = { ...favorites };
-                      if (faves[e.objectID]) delete faves[e.objectID];
-                      saveFavorites(faves);
-                    } else {
-                      let faves = { ...favorites };
-                      faves[e.objectID] = e;
-                      saveFavorites(faves);
-                    }
-                  }}
-                  style={{ margin: "15px 20px" }}
-                />
-              </div>
-            );
-          }) : <h2 className={styles.noItemsText}>- No favorites -</h2>}
+        {favoritesArr.length ? (
+          favoritesArr
+            .slice((page - 1) * 8, Math.min(page * 8, favoritesArr.length))
+            .map((e, index) => {
+              return (
+                <div style={{ flex: "1 0 50%" }} key={index}>
+                  <ItemComponent
+                    hit={e}
+                    favorite={!!favorites[e.objectID]}
+                    onFavoriteChanged={(val: boolean) => {
+                      if (!val) {
+                        let faves = { ...favorites };
+                        if (faves[e.objectID]) delete faves[e.objectID];
+                        saveFavorites(faves);
+                      } else {
+                        let faves = { ...favorites };
+                        faves[e.objectID] = e;
+                        saveFavorites(faves);
+                      }
+                    }}
+                    style={{ margin: "15px 20px" }}
+                  />
+                </div>
+              );
+            })
+        ) : (
+          <h2 className={styles.noItemsText}>- No favorites -</h2>
+        )}
       </div>
       <div className={styles.footer}>
         <PaginationComponent
           page={page}
           totalPages={Math.ceil(favoritesArr.length / 8) || 1}
           onPageChanged={savePage}
+          maxItemCount={9}
         />
       </div>
     </div>
