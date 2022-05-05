@@ -1,7 +1,7 @@
 .header{
     display: flex;
     justify-content: flex-start;
-    height: 114px;
+    height: 11vh;
     box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
     background-image: linear-gradient(to bottom, #ececec -32%, #fff 124%);
 }
@@ -11,11 +11,11 @@
 }
 
 .tabContainer{
-    margin: 36px;
+    margin: 3.5vh;
+    max-height: 7vh;
 }
 .headerImg{
-    width: 208px;
-    height: 35px;
+    height: 2rem;
     object-fit: contain;
     font-family: Baskerville;
     font-size: 28px;

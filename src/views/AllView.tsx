@@ -102,7 +102,7 @@ export default function AllView() {
                   saveFavorites(faves);
                 }
               }}
-              style={{ margin: "15px 20px" }}
+              style={{ margin: "1.5vh 20px" }}
             />
           </div>
         ))}

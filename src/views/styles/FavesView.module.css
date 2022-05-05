@@ -1,0 +1,36 @@
+.globalContainer {
+  max-width: 1200px;
+  margin: auto;
+}
+.selectorContainer {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 23px;
+}
+.itemsContainer {
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 55vh;
+  margin-left: -20px;
+}
+.footer {
+  position: absolute;
+  bottom: 98px;
+  left: 0;
+  width: 100%;
+}
+.noItemsText {
+  display: flex;
+  height: 300px;
+  font-family: Roboto;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #343434;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
