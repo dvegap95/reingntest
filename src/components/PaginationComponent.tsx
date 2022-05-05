@@ -42,7 +42,7 @@ export default function PaginationComponent(props: {
             props.onPageChanged(Math.min(props.page + 1, props.totalPages));
         }}
       >
-        <MdChevronRight className={styles.paginationControlIcon} />
+        <MdChevronRight className={styles.paginationControlIcon}/>
       </div>
     </div>
   );

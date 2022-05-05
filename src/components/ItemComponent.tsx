@@ -7,9 +7,10 @@ export default function StyledDropdown(props: {
   favorite?: boolean;
   onFavoriteChanged?: Function;
   onCLick?: React.MouseEventHandler<HTMLDivElement>;
+  style?:Object;
 }) {
   return (
-    <div className={styles.cardContainer} onClick={props.onCLick}>
+    <div className={styles.cardContainer} onClick={props.onCLick} style={props.style}>
       <div className={styles.cardContent}>
         <div className={styles.cardSubtitleContainer}>
           <img src={clockImg} className={styles.cardSubtitleImg}></img>

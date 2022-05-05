@@ -1,0 +1,21 @@
+.globalContainer{
+    max-width: 1200px;
+    margin: auto;
+}
+.selectorContainer{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 23px;
+}
+.itemsContainer{
+    overflow-y: auto;
+    max-height: 70vh;
+    max-width: 1200px;
+    margin-left: -20px;
+}
+.footer{
+    position: absolute;
+    bottom: 98px;
+    left: 0;
+    width: 100%;
+}

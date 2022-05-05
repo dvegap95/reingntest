@@ -6,6 +6,7 @@ import TabComponent from "./components/TabComponent";
 import ItemComponent from "./components/ItemComponent";
 import PaginationComponent from "./components/PaginationComponent";
 import HackerNewsLayout from "./layouts/HackerNewsLayout";
+import AllView from "./views/AllView";
 
 function App() {
   // const [selection, setSelection] = useState({ id: 0 });
@@ -13,7 +14,7 @@ function App() {
   // const [fav, setFav] = useState(true);
   // const [page, setPage] = useState(1);
   return (
-    <HackerNewsLayout/>
+    <AllView/>
     // <div style={{ padding: 30 }}>
     //   <TabComponent value={tab} onChange={setTab} />
     //   <SelectComponent
