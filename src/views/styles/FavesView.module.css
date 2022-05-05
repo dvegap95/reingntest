@@ -5,7 +5,8 @@
 .selectorContainer {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 23px;
+  margin-bottom: 2.3vh;
+  max-height: 5vh;
 }
 .itemsContainer {
   overflow-y: auto;
@@ -16,7 +17,7 @@
 }
 .footer {
   position: absolute;
-  bottom: 98px;
+  bottom: 9.8vh;
   left: 0;
   width: 100%;
 }

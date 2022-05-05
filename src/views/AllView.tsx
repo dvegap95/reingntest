@@ -86,7 +86,7 @@ export default function AllView() {
         <SelectComponent value={selection} onChange={saveSelection} />
       </div>
       <div className={styles.itemsContainer}>
-        {data.map((e,index) => (
+        {data.length ? data.map((e,index) => (
           <div style={{ flex:"1 0 50%" }} key={index}>
             <ItemComponent
               hit={e}
@@ -105,7 +105,7 @@ export default function AllView() {
               style={{ margin: "1.5vh 20px" }}
             />
           </div>
-        ))}
+        )) : <h2 className={styles.loadingText}>Loading...</h2>}
       </div>
       <div className={styles.footer}>
         <PaginationComponent
