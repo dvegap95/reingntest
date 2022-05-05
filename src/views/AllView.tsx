@@ -11,7 +11,7 @@ export default function AllView() {
         <SelectComponent value={selection} onChange={setSelection} />
       </div>
       <div className={styles.itemsContainer}>
-        {new Array(5).fill(1).map((e) => (
+        {new Array(8).fill(1).map((e) => (
           <div style={{ display: "inline-block" }}>
             <ItemComponent style={{ margin: "15px 20px" }} />
           </div>
