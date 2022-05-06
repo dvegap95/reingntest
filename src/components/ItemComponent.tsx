@@ -10,28 +10,30 @@ TimeAgo.addDefaultLocale(en)
 const timeAgo = new TimeAgo('en-US')
 export interface Hit {
   author: string
-  // comment_text: string
   created_at: string
-  // created_at_i: number
-  // num_comments?: number | null
-  objectID: string
-  // parent_id: number
-  // points?: any
-  // story_id: number //assumed to be unique
-  // story_text?: string | null
+  objectID: string //assumed to be unique
   story_title: string
   story_url: string
+
+  //non used props
+  // parent_id: number
+  // points?: any
+  // story_id: number 
+  // story_text?: string | null
+  // comment_text: string
+  // created_at_i: number
+  // num_comments?: number | null
   // title: string | null
   // url: string | null
   }
 
   
 export default function StyledDropdown(props: {
-  favorite?: boolean;
-  onFavoriteChanged?: Function;
-  onCLick?: React.MouseEventHandler<HTMLDivElement>;
-  style?:React.CSSProperties | undefined;
-  hit:Hit
+  favorite?: boolean; //is it a favorite (controlled prop)
+  onFavoriteChanged?: Function; //item favorite state change triggered internally
+  onCLick?: React.MouseEventHandler<HTMLDivElement>; //item click handler
+  style?:React.CSSProperties | undefined; //prop extension for inline styling
+  hit:Hit //item information
 }) {
   return (
     <div className={styles.cardContainer} onClick={props.onCLick} style={props.style}>
@@ -44,11 +46,12 @@ export default function StyledDropdown(props: {
       </div>
       <div className={styles.cardFavSection}>
         <img
+          //if favorite render filled heart img, outlined heart otherwise
           src={props.favorite ? favImgFilled : favImgOutlined}
           className={styles.cardFavImg}
           onClick={(event)=>{
             props.onFavoriteChanged && props.onFavoriteChanged(!props.favorite);
-            event?.stopPropagation();
+            event?.stopPropagation();//prevent clobal element click to be triggered when favorite state is changed
           }}
         ></img>
       </div>

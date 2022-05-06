@@ -11,20 +11,25 @@ import imgVue3x from "../img/image-141@3x.png";
 import styles from "./styles/SelectComponent.module.css";
 import {MdExpandMore} from "react-icons/md"
 
-export default function SelectComponent(props: {onChange:Function,value:{id:number}}) {
+export default function SelectComponent(props: {
+  value:{id:number} //controlled component selection value (object-like format)
+  onChange:Function, //handler for selection value changes
+}) {
   const selectLabel = "Select your news";
-  const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState(false);// show/hide menu
 
   useEffect(()=>{
+    //window click event listener for close menu when clicking outside
     window.onclick = (event) => {
       setMenu(false);
     };
     return()=>{
+      //release event on component unmount
       window.onclick = null;
     }
   },[]);
 
-  const options = [
+  const options = [ //menu option information array for extensibility (if needed)
     {
       text: "Angular",
       img: imgAngular,
@@ -51,7 +56,7 @@ export default function SelectComponent(props: {onChange:Function,value:{id:numb
     <div
       className={styles.selectContainer}
       onClick={(event) => {
-        event.stopPropagation();
+        event.stopPropagation();//prevent window to handle click event when it comes from current component
         setMenu(!menu);
       }}
     >
@@ -67,7 +72,7 @@ export default function SelectComponent(props: {onChange:Function,value:{id:numb
             onClick={(event) => {
               option.onClick({id:index})
             }}
-            style={props.value?.id === index ? {backgroundColor:"#eaeaea90"}:{}}
+            style={props.value?.id === index ? {backgroundColor:"#eaeaea90"}:{}}//different background color if selected
             key={index}
           >
             <img
