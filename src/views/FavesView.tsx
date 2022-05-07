@@ -1,34 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
-import SelectComponent from "../components/SelectComponent";
 import ItemComponent, { Hit } from "../components/ItemComponent";
 import styles from "./styles/FavesView.module.css";
 import PaginationComponent from "../components/PaginationComponent";
 
-interface HitsPageInfo {
-  exhaustiveNbHits: boolean;
-  exhaustiveTypo: boolean;
-  hits: Array<Hit>;
-  hitsPerPage: number;
-  nbHits: number;
-  nbPages: number;
-  page: number;
-  params: string;
-  processingTimeMS: number;
-  query: string;
-}
 export default function FavesView() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);//current page state 
+
+  //favorites dictionary-like object map (in state) for tracking favorite changes
   const [favorites, setFavorites]: [any, Function] = useState({});
 
+  //array of favorite entries for rendering
   const favoritesArr = Object.entries(favorites).map((el) => el[1] as Hit);
 
   useEffect(() => {
     let faves,
-      favesStr = localStorage.getItem("favorites");
-    if (favesStr) {
-      faves = JSON.parse(favesStr);
-      setFavorites(faves);
-    } else faves = favorites;
+      favesStr = localStorage.getItem("favorites"); //get favorites from local site storage
+    if (favesStr) {// was there favorites in local storage?
+      faves = JSON.parse(favesStr);//parse favorites
+      setFavorites(faves);//update favorites in state
+    } else faves = favorites;//assign current favorites state to faves which should be undefined 
+
+    //?code block analog to previous one, this time for selection
     let p,
       pStr = localStorage.getItem("faves_page");
     if (pStr) {
@@ -37,14 +29,14 @@ export default function FavesView() {
     } else p = page;
   }, []);
 
-  function saveFavorites(faves: any) {
+  function saveFavorites(faves: any) {//store favorites (faves) in localStorage and in state
     localStorage.setItem("favorites", JSON.stringify(faves));
     if (Object.entries(faves).length <= (page - 1) * 8)
       savePage(Math.max(page - 1, 1));
     setFavorites(faves);
   }
 
-  function savePage(p: number) {
+  function savePage(p: number) {//store page (p) in localStorage and in state
     localStorage.setItem("faves_page", JSON.stringify(p));
     setPage(p);
   }
@@ -64,7 +56,7 @@ export default function FavesView() {
                   <ItemComponent
                     hit={e}
                     favorite={!!favorites[e.objectID]}
-                    onFavoriteChanged={(val: boolean) => {
+                    onFavoriteChanged={(val: boolean) => {//edit favorites dictionary
                       if (!val) {
                         let faves = { ...favorites };
                         if (faves[e.objectID]) delete faves[e.objectID];
