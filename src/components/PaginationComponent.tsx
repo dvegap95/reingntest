@@ -78,6 +78,7 @@ export default function PaginationComponent(props: {
       pagesButtons.push( //add pageButton element
         <div
           className={styles.paginationButton}
+          data-testid={`page_component__page_${currPg}`}
           style={
             props.page === p
               ? { backgroundColor: "#1890ff", color: "#fff" }
@@ -111,7 +112,9 @@ export default function PaginationComponent(props: {
             props.onPageChanged(Math.max(props.page - 1, 1));//decrese page if possible
         }}
       >
-        <MdChevronLeft className={styles.paginationControlIcon} />
+        <MdChevronLeft className={styles.paginationControlIcon} 
+          data-testid="page_component__prev"
+          />
       </div>
       {pagesButtons}
       <div
@@ -121,7 +124,9 @@ export default function PaginationComponent(props: {
             props.onPageChanged(Math.min(props.page + 1, props.totalPages));//increase page if possible
         }}
       >
-        <MdChevronRight className={styles.paginationControlIcon} />
+        <MdChevronRight className={styles.paginationControlIcon} 
+          data-testid="page_component__next"
+          />
       </div>
     </div>
   );

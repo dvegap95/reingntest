@@ -59,7 +59,8 @@ export default function SelectComponent(props: {
         event.stopPropagation();//prevent window to handle click event when it comes from current component
         setMenu(!menu);
       }}
-    >
+      data-testid="select_component__container"
+      >
       <span className={styles.selectLabel}>{selectLabel}</span>
       <MdExpandMore className={styles.selectIcon}/>
       <div
