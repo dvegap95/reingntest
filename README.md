@@ -45,20 +45,20 @@ npm run preview
 
 ## Testing
 ### Unit testing for components
-with [vitest]()
+with [vitest](https://vitest.dev/)
 ```
 npm run test
 ```
-GUI with [vitest + ui]()
+GUI with [vitest + ui](https://www.npmjs.com/package/@vitest/ui)
 ```
 npm run test:ui
 ```
-### Integration testing for views with [Cypress]()
+### Integration testing for views with [Cypress](https://www.cypress.io/)
 ```
 npm run cypress-test
 ```
 
-## Usage
+# Usage
 The project main view displays new's information fetched from a public API:
 https://hn.algolia.com/api/v1/search_by_date
 
@@ -77,7 +77,7 @@ Favorite items can be seen all together (despite it's subject) by switching the 
 
 In favorites view, tggling the heart again will cause the item to be removed immediately from favorites list
 
-## Components
+## [Components](src/components/)
 The project uses 4 controlled [components](https://shopify-1.gitbook.io/react/2.-intermediate/controlled-and-uncontrolled-components). 
 
 ### [ItemComponent.tsx](src/components/ItemComponent.tsx)
@@ -101,4 +101,38 @@ The project uses 4 controlled [components](https://shopify-1.gitbook.io/react/2.
 
 - It handles the controlled property "tab", used for toggle favorites viex.
 
-## Views
+## [Views](src/views/)
+### [AllView.tsx](src/views/AllView.tsx)
+
+- Displays the news cards fetched from the api
+- Contains and controls components for API query configuration
+- Handles infinite scrolling functionality along with pagination
+
+## [Views](src/views/)
+### [AllView.tsx](src/views/AllView.tsx)
+
+- Displays the favorite items
+
+
+# Design
+Since a landscape design template was imposed, the approach of mobile-first design was not taken.
+
+The design is responsive and it fits most of the specifications provided when the viewPort aspect ratio fits the dimensions provided with the design pattern.
+
+Pagination design is slightly different due to truncation implementation since the template design considered only 10 pages but api provided handles more than 100 (assuming 8 items per page also to best fitting the design template)
+
+# Aditional Notes
+- Since 8 items per page was assumed to fit the design template, there's aditionaly not scroll control to controll the dinamic loading infinite scroll view. It initially responds to mouse wheel events.
+
+# Recomendations (TODO's)
+- [Refactor infinite scroll and pagination into separated component](src/views/AllView.tsx#L7):
+    
+    To some people it might seem than ViewAll component handles too munch responsability due to infinite scroll handling
+- [Implement toast system](src/views/AllView.tsx#L137):
+
+    User feedback is currently been handled poorly with alerts, it's a recomendation to use some toast system (could be [react-toastify](https://www.npmjs.com/package/react-toastify))
+
+- [Implement disabled option and styling for pagination component](src/views/AllView.tsx#L251):
+
+    The pagination input is currently being ignored programmatically by AllView when loading. This scenario should be handled by a disabled property and the corresponding non responsive styling so it'll be user intuitive
+
