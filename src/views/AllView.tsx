@@ -212,6 +212,7 @@ export default function AllView() {
         onScroll={handleScroll}
         onWheel={handleWheel}
         ref={itemsViewRef}
+        data-testid="allview__itemscontainer"
       >
         {data.length && loadingMore !== 2 ? (
           <>

@@ -23,3 +23,5 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+export * from '@testing-library/cypress/add-commands'
+export * from 'cypress-localstorage-commands'

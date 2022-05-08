@@ -77,7 +77,7 @@ export default function PaginationComponent(props: {
     if (pages[p]) {//does page exist in dictionary?
       pagesButtons.push( //add pageButton element
         <div
-          className={styles.paginationButton}
+          className={styles.paginationButton + (props.page === p ? " active_page" : " ")}
           data-testid={`page_component__page_${currPg}`}
           style={
             props.page === p
@@ -86,7 +86,6 @@ export default function PaginationComponent(props: {
           }
           key={currPg}
           onClick={(event) => {
-            console.log({p});
             props.onPageChanged && props.onPageChanged(currPg);
           }}
         >
